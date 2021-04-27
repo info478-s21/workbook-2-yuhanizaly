@@ -1,19 +1,67 @@
 ---
+author: "Yuhaniz Aly"
 title: "Colombia Health Loss"
 output: html_document
 ---
 
-Write your report here!
-
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
-# Set up 
+source("analysis.R")
 library(dplyr)
 library(knitr)
 library(ggplot2)
-
-# Load data
-colombia_data <- read.csv('data/prepped/overview.csv')
-
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Make sure to build your own visualization that compares burden **across metrics** (i.e., YLLs to YLDs).
+# Columbia Health Loss
+
+## Summary 
+
+
+## Deaths
+One metric of disease burden is the number of *deaths*. Below is a barchart of 
+the top 10 diseases that cause the most health loss in Colombia:
+
+```{r plot1, echo = FALSE, warning=FALSE, fig.width = 12, fig.height = 6}
+top_10_deaths_plot
+```
+
+## YLLs
+Another metric of disease burden is *Years of Life Lost (YLLs)*. This measures 
+the years of potential life lost due to premature deaths. Below is a bar chart
+of the top 10 diseases as measured by
+YLLs. 
+```{r plot2, echo = FALSE, warning=FALSE, fig.width = 12, fig.height = 6}
+top_10_ylls_plot
+```
+
+
+## YLDs
+Another metric of disease burden is *Years of Lived with Disability (YLDs)*.
+This measures the years of potential life lost
+due to living with a disability. Below is a bar chart of the top 10 diseases as measured by YLDs. 
+```{r plot3, echo = FALSE, warning=FALSE, fig.width = 12, fig.height = 6}
+top_10_ylds_plot
+```
+
+
+## DALYs
+Lastly, another metric of disease burden is
+*Disability Adjusted Life Years (DALYs)*. This measures the overall disease 
+burden, expressed the years of potential life lost due to ill-health,
+disability, or premature death. DALYs combines mortality and morbidity into one
+metric. Below is a bar chart of the top 10 diseases as measured by DALYs. 
+```{r plot4, echo = FALSE, warning=FALSE, fig.width = 12, fig.height = 6}
+top_10_dalys_plot
+```
+
+## Comparison of  Asthma
+Below is a barchart of different health metrics comparing asthma.
+```{r plot5, echo = FALSE, warning=FALSE, fig.width = 12, fig.height = 6}
+asthma_comparison
+```
+Based on the barchart, asthma has the most ylds and the least deaths. This means
+asthma is not a deadly health condition as not many people die from this cause.
+This is also shown for the ylls comparison because not many lifetime years are 
+lost from asthma. In contrast, a higher percentage of people end up living with 
+asthma, which explains the large percentage of ylds. Lastly, the DALYs tells us 
+that the overall burden for asthma is about 1.7%.
